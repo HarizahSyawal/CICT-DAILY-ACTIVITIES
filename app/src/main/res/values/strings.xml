@@ -1,0 +1,52 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <string name="app_name">CictDailyActivity</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="text_input_email">Email</string>
+    <string name="text_input_password">        Password</string>
+    <string name="nama">Nama</string>
+    <string name="email">Email</string>
+    <string name="nik">NIK</string>
+    <string name="textView4">Forgot</string>
+    <string name="button_save">SAVE</string>
+    <string name="textView2">CICT</string>
+    <string name="textView5" tools:ignore="DuplicateDefinition">DAILY ACTIVITIES</string>
+    <string name="pass">Password</string>
+    <string name="btn_login">Log In</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="prompt_email">Email</string>
+    <string name="textButton_activity">Forgot Password</string>
+    <string name="textButton2_activity">Login Kembali</string>
+    <string name="welcome">"Welcome !"</string>
+    <string name="btn_textButton_activity2">"Login Kembali"</string>
+    <string name="invalid_username">Not a valid username</string>
+    <string name="invalid_password">Password must be >5 characters</string>
+    <string name="login_failed">"Login failed"</string>
+    <string name="action_sign_in2">Submit</string>
+    <string name="nav_home">Home</string>
+    <string name="nav_account">Profile</string>
+    <string name="nav_notification">Logout</string>
+    <string name="tab_1">TO DO</string>
+    <string name="tab_2">IN PROGRESS</string>
+    <string name="tab_3">DONE</string>
+    <string name="daily_activities" />
+    <string name="cict" />
+    <string name="forgot_password">Forgot Password</string>
+    <string name="task_name">Task Name</string>
+    <string name="upcoming_tasks">Upcoming Tasks</string>
+    <string name="tomorrow_s_tasks">Tomorrow\'s Tasks</string>
+    <string name="today_s_tasks">Today\'s Tasks</string>
+    <string name="hey">Hey</string>
+    <string name="you_are_nfree_today">you are\nfree today</string>
+    <string name="you_have_no_task_to_do_today">You have no task to do today</string>
+    <string name="name_error">Please enter your name</string>
+    <string name="phone_error">Please enter a phone number</string>
+    <string name="email_error">Please enter a email address</string>
+    <string name="error_invalid_email">Email is not valid</string>
+    <string name="password_error">Please enter a password</string>
+    <string name="error_invalid_password">Please enter a minimum password of 6 characters</string>
+
+</resources>
