@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 
 import com.google.android.material.navigation.NavigationView;
 
@@ -26,6 +27,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     Fragment fragment;
     FragmentTransaction transaction;
+    Button logout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,6 +46,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         navigationView.setNavigationItemSelectedListener(this);
         navigationView.getMenu().getItem(0).setChecked(true);
         firstFragmentDisplay(R.id.nav_home);
+
+        logout=(Button)findViewById(R.id.nav_notification);
     }
     public void openAddModifyTask(View view) {
         startActivity(new Intent(this, CreateTask.class));
@@ -61,10 +65,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 fragment = new FragmentAccount();
                 break;
             case R.id.nav_notification:
-                fragment = new FragmentNotification();
+                Session session = new Session(MainActivity.this);
+                session.removeSession();
+
+                moveToLogin();
                 break;
         }
-
         if (fragment != null) {
             transaction = getSupportFragmentManager().beginTransaction();
             transaction.replace(R.id.fLayout, fragment);
@@ -72,6 +78,18 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         }
 
         drawer.closeDrawers();
+    }
+    public void logout(View view) {
+        //this method will remove session and open login screen
+        Session session = new Session(MainActivity.this);
+        session.removeSession();
+
+        moveToLogin();
+    }
+    private void moveToLogin() {
+        Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(intent);
     }
 
     @Override

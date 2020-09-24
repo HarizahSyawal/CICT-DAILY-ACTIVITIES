@@ -25,6 +25,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         password = (EditText) findViewById(R.id.text_input_password);
         login = (Button) findViewById(R.id.btn_login);
 
+
         Button btnForgot = findViewById(R.id.btn_textButton_activity);
         btnForgot.setOnClickListener(this);
 
@@ -37,6 +38,12 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 SetValidation();
             }
         });
+    }
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+        checkSession();
     }
     public void SetValidation() {
         // Check for a valid email address.
@@ -60,6 +67,10 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             isPasswordValid = true;
         }
         if (isEmailValid && isPasswordValid) {
+            User user = new User(1,"test@gtest.com");
+            Session session = new Session(LoginActivity.this);
+            session.saveSession(user);
+            moveToMainActivity();
             Toast.makeText(getApplicationContext(), "Successfully", Toast.LENGTH_SHORT).show();
             Intent siginIntent = new Intent(LoginActivity.this, MainActivity.class);
             startActivity(siginIntent);
@@ -70,12 +81,34 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 //            t.show();
 //        }
     }
+
+    private void moveToMainActivity() {
+        Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(intent);
+    }
+
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.btn_textButton_activity:
                 Intent LoginIntent = new Intent(LoginActivity.this, ForgotPassword.class);
                 startActivity(LoginIntent);
                 break;
+        }
+    }
+    private void checkSession() {
+        //check if user is logged in
+        //if user is logged in --> move to mainActivity
+
+        Session session = new Session(LoginActivity.this);
+        int userID = session.getSession();
+
+        if(userID != -1){
+            //user id logged in and so move to mainActivity
+            moveToMainActivity();
+        }
+        else{
+            //do nothing
         }
     }
 }
