@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/bg"
     tools:context=".MainTask">
 
     <androidx.core.widget.NestedScrollView
@@ -123,7 +124,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/hey"
-            android:textColor="#4CAF50"
+            android:textColor="#56C596"
             android:textSize="38sp"
             android:textStyle="normal" />
 
@@ -151,6 +152,19 @@
             android:layout_height="0dp"
             android:gravity="center"
             android:text="" />
+
+        <Button
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="50dp"
+            android:background="@drawable/radius_border_button"
+            android:onClick="openAddModifyTask"
+            android:paddingHorizontal="70dp"
+            android:paddingVertical="15dp"
+            android:text="Add New Task"
+            android:textColor="@color/colorPrimary" />
 
     </LinearLayout>
 

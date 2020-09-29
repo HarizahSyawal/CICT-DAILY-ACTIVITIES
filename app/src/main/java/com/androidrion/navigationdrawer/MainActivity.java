@@ -67,7 +67,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             case R.id.nav_notification:
                 Session session = new Session(MainActivity.this);
                 session.removeSession();
-
                 moveToLogin();
                 break;
         }

@@ -57,8 +57,6 @@ public class ListTaskAdapter extends BaseAdapter {
         holder.checkBtn.setId(position);
 
         try {
-
-
             holder.checkBtn.setOnCheckedChangeListener(null);
             if (singleTask.get("status").contentEquals("1")) {
                 holder.task_name.setText(Html.fromHtml("<strike>" + singleTask.get("task") + "</strike>"));
@@ -81,8 +79,6 @@ public class ListTaskAdapter extends BaseAdapter {
 
                 }
             });
-
-
         } catch (Exception e) {
         }
         return convertView;

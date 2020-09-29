@@ -4,9 +4,16 @@ package com.androidrion.navigationdrawer;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 
 public class SplashScreen extends Activity {
+    Animation topAnim, bottomAnim;
+    ImageView image;
+    TextView teks, teks2;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         // TODO Auto-generated method stub super.onCreate(savedInstanceState);
@@ -15,7 +22,7 @@ public class SplashScreen extends Activity {
         Thread timerThread = new Thread() {
             public void run() {
                 try {
-                    sleep(3000);
+                    sleep(5000);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 } finally {
@@ -25,6 +32,19 @@ public class SplashScreen extends Activity {
             }
         };
         timerThread.start();
+
+        //Animation
+        topAnim = AnimationUtils.loadAnimation(this,R.anim.top_animation);
+        bottomAnim = AnimationUtils.loadAnimation(this,R.anim.bottom_animation);
+
+        //Hooks
+        image = findViewById(R.id.textView5);
+        teks = findViewById(R.id.textView2);
+        teks2 = findViewById(R.id.textView4);
+
+        teks.setAnimation(topAnim);
+        teks2.setAnimation(topAnim);
+        image.setAnimation(bottomAnim);
     }
 
     @Override
